@@ -41,6 +41,39 @@ public class TestShapes {
          Circle has the largest area as 50.24
          */
 
+        Rectangle rectangle = new Rectangle();
+        rectangle.setWidth(5.5);
+        rectangle.setHeight(6);
+
+        Square square = new Square();
+        square.setSide(2.5);
+
+        Circle circle = new Circle();
+        circle.setRadius(4);
+
+        Shape[] shapes = {rectangle, square, circle};
+        for (Shape element : shapes){
+            System.out.println(element);
+        }
+
+        Shape max = new Shape() {
+            @Override
+            public double area() {
+                return 0;
+            }
+
+            @Override
+            public double perimeter() {
+                return 0;
+            }
+        };
+
+        for (Shape element : shapes){
+            if (element.area() > max.area()) max = element;
+        }
+
+        System.out.println("\n" + max.getClass().getSimpleName() + " has the largest area as " + max.area());
+
 
     }
 }
